@@ -12,11 +12,10 @@ async function UserLoginController(req, res, next) {
         "Verique o e-mail e a senha digitada",
         404
       );
-      
+
     const token = await UserLoginService(req.validated, req.user);
     if (token instanceof RequestError) throw token;
 
- 
     if (!token)
       throw new RequestError(
         "Login Error",
@@ -24,6 +23,8 @@ async function UserLoginController(req, res, next) {
         500
       );
 
+    res.setHeader("Content-Type", "application/json");
+    res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
     return res.status(200).json({ success: "OK", token });
   } catch (err) {
     return next(err);

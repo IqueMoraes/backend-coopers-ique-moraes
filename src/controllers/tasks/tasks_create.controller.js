@@ -21,7 +21,9 @@ async function TaskCreateController(req, res, next) {
         500
       );
     }
-
+    
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     return res.status(201).json({
       success: "CREATED",
       message: "Tarefa criada com sucesso.",

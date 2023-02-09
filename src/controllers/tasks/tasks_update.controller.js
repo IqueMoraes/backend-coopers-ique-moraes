@@ -32,7 +32,9 @@ function TaskUpdateController(req, res, next) {
         "Não foi possível atualizar a tarefa",
         500
       );
-
+      
+    res.setHeader("Content-Type", "application/json");
+    res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
     return res.status(200).json(update_task);
   } catch (err) {
     return next(err);

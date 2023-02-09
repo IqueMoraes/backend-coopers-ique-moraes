@@ -1,6 +1,6 @@
 import express from "express";
 
-import StartRoutes from "./routes/index.js";
+import StartRoutes from "../routes/index.js";
 
 const app = express();
 

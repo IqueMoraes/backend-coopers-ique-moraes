@@ -25,6 +25,8 @@ async function UserCreateController(
       );
     }
 
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     return res.status(201).json({
       success: "CREATED",
       message: "Usuário cadastrado com sucesso.",
