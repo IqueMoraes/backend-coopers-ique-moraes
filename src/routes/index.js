@@ -1,10 +1,10 @@
-import { json } from "express";
+import { json, Router } from "express";
 
 import { ErrorHandler } from "../middlewares/index.js";
 import usersRoutes from "./users.routes.js";
 import tasksRoutes from "./tasks.routes.js";
 
-const routes = [usersRoutes, tasksRoutes];
+const routes = [Router().get("/", (req, res) => res.status(200).send("<p>API da aplicação Coopers por Ique Moraes</p> <p>Processo seletivo em 2023.</p>")),usersRoutes, tasksRoutes];
 
 function StartRoutes(app) {
   app.use(json());
