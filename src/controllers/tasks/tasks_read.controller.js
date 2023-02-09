@@ -24,6 +24,8 @@ function TaskReadController(req, res, next) {
     if (tasks.toDo.length === 0 && tasks.done.length === 0)
       return res.status(204).json(tasks);
 
+    res.setHeader("Content-Type", "application/json");
+    res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
     return res.status(200).json(tasks);
   } catch (err) {
     return next(err);

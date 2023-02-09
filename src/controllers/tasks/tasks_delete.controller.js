@@ -19,6 +19,8 @@ function TaskDeleteController(req, res, next) {
         500
       );
 
+    res.setHeader("Content-Type", "application/json");
+    res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
     return res.status(204).json(deleted_task);
   } catch (err) {
     return next(err);
