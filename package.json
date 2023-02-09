@@ -3,15 +3,20 @@
   "version": "1.0.0",
   "description": "Projeto de API para alimentação do front-end como teste técnico.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
-
+    "dev": "nodemon src/index.js"
   },
   "author": "Ique Moraes",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2"
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "uuid": "^9.0.0",
+    "yup": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^8.33.0",
