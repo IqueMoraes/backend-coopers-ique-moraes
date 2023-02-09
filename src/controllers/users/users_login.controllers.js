@@ -16,7 +16,7 @@ async function UserLoginController(req, res, next) {
     const token = await UserLoginService(req.validated, req.user);
     if (token instanceof RequestError) throw token;
 
-    console.log("here", token);
+ 
     if (!token)
       throw new RequestError(
         "Login Error",
